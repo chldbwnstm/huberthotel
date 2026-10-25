@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="site-header">
-    <button class="menu-btn" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">
       <span></span><span></span>
     </button>
     <a href="#" class="logo">THE HUBERT HOTEL</a>
@@ -20,10 +20,10 @@
   </header>
 
   <nav class="overlay-nav">
-    <a href="#packages" onclick="document.body.classList.remove('nav-open')">Packages</a>
-    <a href="#upgrades" onclick="document.body.classList.remove('nav-open')">Upgrades</a>
-    <a href="#club" onclick="document.body.classList.remove('nav-open')">Hubert Circle</a>
-    <a href="#contact" onclick="document.body.classList.remove('nav-open')">Contact</a>
+    <a href="#packages">Packages</a>
+    <a href="#upgrades">Upgrades</a>
+    <a href="#club">Hubert Circle</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section class="hero">
@@ -56,7 +56,7 @@
       <article class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80')"></div>
         <h3>Morning Ritual</h3>
-        <p>Wake slowly. A full breakfast for two in our garden café is included every morning of your stay, with fresh pastries and house-roasted coffee.</p>
+        <p>Wake slowly. A full breakfast for two in our garden caf챕 is included every morning of your stay, with fresh pastries and house-roasted coffee.</p>
         <a href="#book" class="link">Book now</a>
       </article>
       <article class="card">
@@ -74,7 +74,7 @@
       <article class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=900&q=80')"></div>
         <h3>Neighbourhood Pass</h3>
-        <p>Choose any room and receive a dining and shopping credit to spend at our favourite local cafés, galleries and boutiques around the corner.</p>
+        <p>Choose any room and receive a dining and shopping credit to spend at our favourite local caf챕s, galleries and boutiques around the corner.</p>
         <a href="#book" class="link">Book now</a>
       </article>
       <article class="card">
@@ -134,5 +134,11 @@
     </div>
     <p class="copy">&copy; 2026 The Hubert Hotel</p>
   </footer>
+  <script>
+    const btn = document.querySelector('.menu-btn');
+    const setNav = open => { document.body.classList.toggle('nav-open', open); btn.setAttribute('aria-expanded', open); };
+    btn.onclick = () => setNav(!document.body.classList.contains('nav-open'));
+    document.querySelectorAll('.overlay-nav a').forEach(a => a.onclick = () => setNav(false));
+  </script>
 </body>
 </html>
